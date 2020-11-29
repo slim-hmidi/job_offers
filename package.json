@@ -2,24 +2,35 @@
   "name": "job_offers",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8010/proxy",
   "dependencies": {
-    "@reduxjs/toolkit": "^1.2.5",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-redux": "^7.1.7",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.0",
-    "react-scripts": "4.0.0",
+    "@reduxjs/toolkit": "1.4.0",
+    "@testing-library/jest-dom": "5.11.6",
+    "@testing-library/react": "11.2.2",
+    "@testing-library/user-event": "12.2.2",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "24.0.0",
+    "@types/node": "12.0.0",
+    "@types/react": "16.9.0",
+    "@types/react-dom": "16.9.0",
+    "@types/react-redux": "7.1.7",
+    "@types/react-router-dom": "5.1.6",
+    "@types/testing-library__jest-dom": "5.9.5",
+    "axios": "^0.21.0",
+    "concurrently": "5.3.0",
+    "html-react-parser": "0.14.2",
+    "msw": "0.22.3",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-redux": "7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
     "typescript": "~3.8.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:proxy": "lcp --proxyUrl https://jobs.github.com",
+    "start:app": "react-scripts start",
+    "start": "concurrently npm:start:*",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/dom": "7.28.1"
   }
 }
