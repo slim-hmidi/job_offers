@@ -1,6 +1,5 @@
 // src/mocks/handlers.js
 import { rest } from 'msw'
-const originalPath = 'http://localhost:3000';
 
 const jobs = [
 {
@@ -20,13 +19,6 @@ const jobs = [
 
 export const handlers = [
   rest.get('http://localhost/positions.json', (req, res, ctx) => {
-    // return res((res) => {
-    //   // Respond with a 200 status code
-    //   ctx.status(200)
-    //   res.headers.set('Content-Type', 'application/json')
-    //   ctx.json(jobs)
-    //   return res
-    // })
     return res(ctx.json(jobs));
   }),
 ]

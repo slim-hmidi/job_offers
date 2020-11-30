@@ -28,12 +28,20 @@
     "typescript": "~3.8.2"
   },
   "scripts": {
+    "lint": "eslint src/**/*.ts{,x} --cache --cache-location node_modules/.cache/eslint ",
+    "format": "prettier --write \"**/*.+(ts|tsx|json|css|md|mdx|html)\"",
+    "pre-push": "npm run lint & npm format",
     "start:proxy": "lcp --proxyUrl https://jobs.github.com",
     "start:app": "react-scripts start",
     "start": "concurrently npm:start:*",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run pre-push"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,6 +59,8 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/dom": "7.28.1"
+    "@testing-library/dom": "7.28.1",
+    "husky": "^4.3.0",
+    "prettier": "^2.2.1"
   }
 }
